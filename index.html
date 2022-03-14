@@ -11,6 +11,10 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
     <script type="module" src="index.js"></script>
+    <!-- selectize -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
 </head>
 <body>
 
@@ -60,7 +64,7 @@
 
     <div class="col-12" style="text-align: end">
         <a class="btn btn-secondary" data-bs-toggle="modal">
-            <span data-bs-toggle="tooltip" data-bs-placement="bottom" title="edit task"></span>
+            <span data-bs-toggle="tooltip" data-bs-placement="bottom"></span>
             <i class="bi bi-pencil" style="font-size: 1rem; color: white;"></i>
         </a>
     </div>
@@ -68,6 +72,7 @@
     <p><b>Stamdata</b></p>
     <p>Navn: <span id="id-name"></span></p>
     <p>Telefon: <span id="id-phone"></span></p>
+    <p>Email: <span id="id-email"></span></p>
     <p><b>Adresse</b></p>
     <p>Gade: <span id="id-street"></span></p>
     <p>By: <span id="id-city"></span></p>
@@ -76,7 +81,7 @@
 
     <div class="input-group">
         <div class="col-3">
-                <select id="hobby-select" class="form-select">
+                <select id="hobby-select">
                     <option value="">Vælg hobby..</option>
                     <option value="alpha">alpha</option>
                     <option value="beta">beta</option>
@@ -88,4 +93,11 @@
             <button class="btn btn-success ms-2">Tilføj</button>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            $('select').selectize({
+                sortField: 'text'
+            });
+        });
+    </script>
 </template>
