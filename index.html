@@ -64,30 +64,31 @@
 
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
-                    <input name="test-input" id="name" type="text" class="form-control" required>
+                    <input id="name" type="text" class="form-control" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="email" class="form-label">Email address</label>
-                    <input name="test-input" id="email" type="email" class="form-control" required>
+                    <input  id="email" type="email" class="form-control" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="password" class="form-label">password</label>
-                    <input name="test-input" id="password" type="password" class="form-control" required>
+                    <input id="password" type="password" class="form-control" required autocomplete="new password">
                 </div>
 
                 <div class="mb-3">
                     <label for="confirmPassword" class="form-label">Confirm Password</label>
-                    <input name="test-input" id="confirmPassword" type="password" class="form-control" required>
+                    <input id="confirmPassword" type="password" class="form-control" required autocomplete="new password">
                 </div>
 
-                <div class="mb-3" id='PasswordMessage'>
-                    <ul class="list-group list-group-flush">
+                <div class="mb-3" >
+                    <ul class="list-group list-group-flush" id='PasswordMessage'>
                         <li class="list-group-item list-group-item-danger" id="empty"></li>
                         <li class="list-group-item list-group-item-danger" id="length"></li>
                         <li class="list-group-item list-group-item-danger" id="letter"></li>
                         <li class="list-group-item list-group-item-danger" id="capital"></li>
+                        <li class="list-group-item list-group-item-danger" id="number"></li>
                         <li class="list-group-item list-group-item-danger" id="matcher"></li>
                     </ul>
                 </div>
