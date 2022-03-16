@@ -59,8 +59,32 @@
 </html>
 
 <template data-id="page-search">
+    <div class="container mt-5 py-5">
+        <h1 class="h1">Search</h1>
+        <div id="form-wrapper">
+            <form id="search-form">
+
+                <div class="mb-3">
+                    <label for="name" class="form-label"></label>
+                    <input name="test-input" id="name" type="text" class="form-control" placeholder="Name or email" required>
+                </div>
+                <button class="btn btn-success">Search</button>
+
+                <table class="table" hidden>
+                    <thead>
+                    <tr>
+                        <th id="search-name">Name</th>
+                        <th id="search-email">Email</th>
+                        <th id="search-phone">Phone</th>
+                        <th id="search-hobby">Hobby</th>
+                    </tr>
+                    </thead>
+                    <tbody id="table-body"></tbody>
+                </table>
+
     <h2>Search </h2>
 </template>
+          
 <template data-id="page-sign-up">
     <div class="container mt-5 py-5">
         <h1 class="h1">Sign up</h1>
@@ -102,7 +126,7 @@
         </div>
     </div>
 </template>
-
+          
 <template data-id="page-my-details">
     <h3 class="pt-3">Profil</h3>
     <hr>
@@ -146,4 +170,3 @@
         });
     </script>
 </template>
-
