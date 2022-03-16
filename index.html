@@ -58,6 +58,51 @@
 </body>
 </html>
 
+<template data-id="page-search">
+    <h2>Search </h2>
+</template>
+<template data-id="page-sign-up">
+    <div class="container mt-5 py-5">
+        <h1 class="h1">Sign up</h1>
+        <div id="form-wrapper">
+            <form id="sign-up-form" method="POST" >
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input id="name" type="text" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input  id="email" type="email" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">password</label>
+                    <input id="password" type="password" class="form-control" required autocomplete="new password">
+                </div>
+
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <input id="confirmPassword" type="password" class="form-control" required autocomplete="new password">
+                </div>
+
+                <div class="mb-3" >
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item list-group-item-danger" id="empty"></li>
+                        <li class="list-group-item list-group-item-danger" id="length"></li>
+                        <li class="list-group-item list-group-item-danger" id="letter"></li>
+                        <li class="list-group-item list-group-item-danger" id="capital"></li>
+                        <li class="list-group-item list-group-item-danger" id="number"></li>
+                        <li class="list-group-item list-group-item-danger" id="matcher"></li>
+                    </ul>
+                </div>
+                <button id="submit-btn" type="submit" class="btn btn-secondary">Submit</button>
+            </form>
+        </div>
+    </div>
+</template>
+
 <template data-id="page-my-details">
     <h3 class="pt-3">Profil</h3>
     <hr>
@@ -101,3 +146,4 @@
         });
     </script>
 </template>
+

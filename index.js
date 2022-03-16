@@ -1,8 +1,10 @@
 import { renderTemplate, setActive, showPage } from "./utils.js"
 //import { setupLoginHandlers, logout, updateLoginDependentComponents } from "./js-for-pages/login.js"
+import {signUpForm} from "./js-for-pages/sign-up.js"
 //import {getAllCars } from "./js-for-pages/seeOurCars.js";
 //import {addCarHandles}from"./js-for-pages/addCar.js"
 import {getUser}from "./js-for-pages/userPage.js"
+
 
 function renderMenuItems(evt) {
     const element = evt.target
@@ -23,7 +25,7 @@ function renderMenuItems(evt) {
             break
         }
         case "page-sign-up":{
-            //addCarHandles()
+            signUpForm()
             break
         }
         case "page-login": {
