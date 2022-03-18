@@ -4,6 +4,7 @@ import {signUpForm} from "./js-for-pages/sign-up.js"
 //import {getAllCars } from "./js-for-pages/seeOurCars.js";
 //import {addCarHandles}from"./js-for-pages/addCar.js"
 import {getUser}from "./js-for-pages/userPage.js"
+import {getPersonData} from "./js-for-pages/search.js";
 
 
 function renderMenuItems(evt) {
@@ -17,7 +18,7 @@ function renderMenuItems(evt) {
         //   break
         // }
         case "page-search": {
-            //getAllCars()
+            getPersonData()
             break
         }
         case "page-my-details":{

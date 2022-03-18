@@ -68,20 +68,33 @@
                 </div>
                 <button class="btn btn-success">Search</button>
 
-                <table class="table" hidden>
+                <table class="table" >
                     <thead>
                     <tr>
                         <th id="search-name">Name</th>
                         <th id="search-email">Email</th>
                         <th id="search-phone">Phone</th>
                         <th id="search-hobby">Hobby</th>
+                        <th id="search-hobby-description">Hobbybeskrivelse</th>
                     </tr>
                     </thead>
-                    <tbody id="table-body"></tbody>
+                    <tbody id="search-body"></tbody>
                 </table>
             </form>
         </div>
     </div>
+    <!--
+    <script>
+        console.log("test")
+        fetch("http://localhost:8080/api/hobby")
+            .then(res => res.json())
+            .then(hobby => {
+                console.log(hobby)
+                document.getElementById("search-hobby").innerText = hobby[0].name
+                document.getElementById("search-hobby-description").innerText = hobby[0].description
+            })
+    </script>
+    -->
 </template>
           
 <template data-id="page-sign-up">
