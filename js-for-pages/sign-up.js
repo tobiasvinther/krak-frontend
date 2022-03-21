@@ -1,3 +1,8 @@
+import {SERVER} from "../settings.js"
+import {makeOptions} from"../fetchUtils.js"
+import {showPage} from "../utils.js"
+
+const URL = SERVER+"/auth/register"
 
 export function signUpForm() {
     document.getElementById("submit-btn").disabled = true;
@@ -19,8 +24,8 @@ export function signUpForm() {
             document.getElementById("empty").style.display = "Block"
         }else{
             document.getElementById("empty").style.display = "None"
-        }if(pwd.length < 5){
-            document.getElementById("length").innerText = "Password must be at least 5 characters"
+        }if(pwd.length < 6){
+            document.getElementById("length").innerText = "Password must be at least 6 characters"
             document.getElementById("length").style.display = "Block"
         }else{
             document.getElementById("length").style.display = "None"
@@ -63,6 +68,46 @@ export function signUpForm() {
             document.getElementById("submit-btn").disabled = true
         }
     }
+}
+
+export function addUserSubmit(){
+    document.getElementById("submit-btn").onclick= addUser
+
+}
+
+function addUser(){
+    const user={}
+    user.username = document.getElementById("name").value
+    user.email = document.getElementById("email").value
+    user.password = document.getElementById("password").value
+
+    fetch(URL,makeOptions("POST",user,false))
+        .then(res=>{
+            if(!res.ok){
+                document.getElementById("name").value = ""
+                document.getElementById("email").value = ""
+                document.getElementById("password").value = ""
+                document.getElementById("confirmPassword").value = ""
+                document.getElementById("new-user-success").innerText = "User already exist"
+                document.getElementById("new-user-success").className = "alert alert-danger"
+                document.getElementById("new-user-success").style.display = "Block"
+                document.getElementById("matcher").style.display = "None"
+                return Promise.reject("Error: "+ res.status)
+            }
+            return res.json()
+        })
+        .then(newUser =>{
+            document.getElementById("matcher").style.display = "None"
+            document.getElementById("name").value = ""
+            document.getElementById("email").value = ""
+            document.getElementById("password").value = ""
+            document.getElementById("confirmPassword").value = ""
+            document.getElementById("new-user-success").innerText = "User created successfully"
+            document.getElementById("new-user-success").className = "alert alert-success"
+            document.getElementById("new-user-success").style.display = "Block"
+            document.getElementById("matcher").style.display = "None"
+        })
+        .catch(e=>console.error(e))
 }
 
 
