@@ -91,8 +91,6 @@ function addHobby(){
         .catch(e => console.error(e))
 }
 
-
-
 export function getAllHobbies(){
     console.log("Start: getAllHobbies")
     if(hobbyList.length > 0){
@@ -117,3 +115,33 @@ function makeRows(rows){
     `
     ).join("\n")
 }
+
+/*
+export function getHobbyList() {
+
+    fetch(URL + "/persons/user1/get-hobbies") //dummy data
+        .then(res => {
+            if (!res.ok) {
+                return Promise.reject("Error :" + res.status) //error handling
+            }
+            return res.json() //get it as json
+        })
+        .then(data => { //now we have the data as json and we can start to use it
+           const itemsAsArray = []
+
+
+
+
+        })
+        .catch(err => {
+            //document.getElementById("id-error").innerText = "User doesn't exist"
+            console.error("Error caught: " + err)
+        }) //catch errors
+        .finally(e => console.log("End: getUser"))
+
+
+    let itemsAsString = names;
+    itemsAsString = names.map(name => `<li> ${name} </li>`).join("\n")
+    document.getElementById("id-hobby-list").innerHTML = itemsAsString
+}
+ */
