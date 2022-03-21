@@ -40,7 +40,8 @@
                     </li>
                 </div>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Log ud</a> <!-- style="display:none" -->
+                    <a id="page-login" class="nav-link" href="#">Login</a>
+                    <a id="page-logout" class="nav-link" href="#" style="display:none">Logout</a> <!-- style="display:none" -->
                 </li>
             </ul>
             <span class="navbar-text">
@@ -61,12 +62,12 @@
 <template data-id="page-search">
     <div class="container mt-5 py-5">
         <h1 class="h1">Search</h1>
-        <div id="form-wrapper">
             <form id="search-form">
 
                 <div class="mb-3">
                     <label for="name" class="form-label"></label>
-                    <input name="test-input" id="name" type="text" class="form-control" placeholder="Name or email" required>
+
+                    <input name="test-input" id="search" type="text" class="form-control" placeholder="Name or email" required>
                 </div>
                 <button class="btn btn-success">Search</button>
 
@@ -81,15 +82,16 @@
                     </thead>
                     <tbody id="table-body"></tbody>
                 </table>
-
-    <h2>Search </h2>
+            </form>
+        </div>
 </template>
           
 <template data-id="page-sign-up">
     <div class="container mt-5 py-5">
         <h1 class="h1">Sign up</h1>
-        <div id="form-wrapper">
-            <form id="sign-up-form" method="POST" >
+        <div class="alert alert-success" role="alert" id="new-user-success" style="display: none"></div>
+        <div>
+            <form >
 
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
@@ -124,6 +126,29 @@
                 <button id="submit-btn" type="submit" class="btn btn-secondary">Submit</button>
             </form>
         </div>
+    </div>
+</template>
+
+<template data-id="page-login">
+    <div class="container mt-5 py-5">
+        <h1>Login</h1>
+    <div>
+        <form>
+            <div class="mb-3">
+                <label>Email</label>
+                <input name="email" id="login-email"
+                       type="email" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label>password</label>
+                <input name="password" id="login-password"
+                       type="password" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-secondary">Login</button>
+        </form>
+    </div>
     </div>
 </template>
           
