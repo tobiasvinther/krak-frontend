@@ -39,9 +39,9 @@ function makeRows(rows){
         <td>Firstname</td>
         <td>Lastname</td> 
         <td>Phone</td>
-        <td>Email</td>
-        <td>Adress</td>
-        <td>City</td>   
+        <td>Email</td>      
+        <td>Adress</td> 
+        <td>City</td> 
         <td>${encode(hobby.name)}</td>
         <td>${encode(hobby.description)}</td>
     </tr>
