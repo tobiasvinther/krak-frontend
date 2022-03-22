@@ -2,7 +2,6 @@ import {showPage} from "../utils.js";
 import {SERVER} from "../settings.js";
 import {makeOptions} from "../fetchUtils.js";
 
-
 const URL = SERVER+"/auth/login"
 
 export function onLoginHandling(){
@@ -33,7 +32,6 @@ function login(){
         .catch(e => {document.getElementById("login-error").innerText = e})
 
 }
-
 
 export function logout(){
     setLoginStatus(null)
