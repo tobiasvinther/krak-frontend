@@ -64,21 +64,18 @@
         <div id="wrapper">
             <form id="search-form">
                 <div class="mb-3">
-                    <input name="test-input" id="search" type="text" class="form-control" placeholder="Email or Phone number" required>
+                    <input name="test-input" id="search-input" type="text" class="form-control" placeholder="Name or Email" required>
                 </div>
                 <button id="search-button" class="btn btn-success">Search</button>
 
-                <table class="table" >
+                <table class="table" id="table" style="display: none">
                     <thead>
                     <tr>
                         <th id="search-firstname">Firstname</th>
                         <th id="search-lastname">Lastname</th>
-                        <th id="search-phone">Phone</th>
                         <th id="search-email">Email</th>
-                        <th id="search-adress">Adress</th>
                         <th id="search-city">City</th>
                         <th id="search-hobby">Hobby</th>
-                        <th id="search-hobby-description">Hobbybeskrivelse</th>
                     </tr>
                     </thead>
                     <tbody id="search-body"></tbody>
