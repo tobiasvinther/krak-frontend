@@ -1,6 +1,3 @@
-
-
-
 export function makeOptions(method, body, addToken) {
     const opts = {
         method: method,

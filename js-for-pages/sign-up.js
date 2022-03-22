@@ -77,14 +77,14 @@ export function addUserSubmit(){
 
 function addUser(){
     const user={}
-    user.username = document.getElementById("name").value
+    user.username = document.getElementById("username").value
     user.email = document.getElementById("email").value
     user.password = document.getElementById("password").value
 
     fetch(URL,makeOptions("POST",user,false))
         .then(res=>{
             if(!res.ok){
-                document.getElementById("name").value = ""
+                document.getElementById("username").value = ""
                 document.getElementById("email").value = ""
                 document.getElementById("password").value = ""
                 document.getElementById("confirmPassword").value = ""
@@ -98,7 +98,7 @@ function addUser(){
         })
         .then(newUser =>{
             document.getElementById("matcher").style.display = "None"
-            document.getElementById("name").value = ""
+            document.getElementById("username").value = ""
             document.getElementById("email").value = ""
             document.getElementById("password").value = ""
             document.getElementById("confirmPassword").value = ""
