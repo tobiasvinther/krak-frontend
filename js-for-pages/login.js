@@ -9,11 +9,11 @@ export function onLoginHandling(){
 }
 
 function login(){
-    const user = {}
-    user.userName = document.getElementById("username-login").value
-    user.password = document.getElementById("password-login").value
+    const person = {}
+    person.userName = document.getElementById("username-login").value
+    person.password = document.getElementById("password-login").value
 
-    fetch(URL,makeOptions("POST",user))
+    fetch(URL,makeOptions("POST",person))
         .then(res => {
             if(!res.ok){
                 if(res.status === 401){

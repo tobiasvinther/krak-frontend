@@ -76,12 +76,12 @@ export function addUserSubmit(){
 }
 
 function addUser(){
-    const user={}
-    user.username = document.getElementById("username").value
-    user.email = document.getElementById("email").value
-    user.password = document.getElementById("password").value
+    const person={}
+    person.username = document.getElementById("username").value
+    person.email = document.getElementById("email").value
+    person.password = document.getElementById("password").value
 
-    fetch(URL,makeOptions("POST",user,false))
+    fetch(URL,makeOptions("POST",person,false))
         .then(res=>{
             if(!res.ok){
                 document.getElementById("username").value = ""
