@@ -2,7 +2,8 @@ import { renderTemplate, setActive, showPage } from "./utils.js"
 import {signUpForm,addUserSubmit} from "./js-for-pages/sign-up.js"
 import {getUser}from "./js-for-pages/userPage.js"
 import {onLoginHandling,logout,loggedInComponentsUpdate} from "./js-for-pages/login.js";
-
+import {getAllHobbies}from "./js-for-pages/userPage.js"
+import {addHobbySubmit} from "./js-for-pages/userPage.js"
 
 function renderMenuItems(evt) {
     const element = evt.target
@@ -20,6 +21,8 @@ function renderMenuItems(evt) {
         }
         case "page-my-details":{
             getUser()
+            getAllHobbies()
+            addHobbySubmit()
             break
         }
         case "page-sign-up":{
