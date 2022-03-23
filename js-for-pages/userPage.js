@@ -81,7 +81,7 @@ function addHobby(){
     hobby.id = value
     hobby.hobbyName = name
 
-    fetch(URL + "/persons/user1/add-hobby", makeOptions("POST", hobby, false))
+    fetch(URL + "/persons/user1/add-hobby", makeOptions("PATCH", hobby, false))
         .then(res=>{
             if(!res.ok){
                 return Promise.reject("Error: " + res.status)
