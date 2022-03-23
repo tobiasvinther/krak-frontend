@@ -1,6 +1,7 @@
 import { renderTemplate, setActive, showPage } from "./utils.js"
 import {signUpForm,addUserSubmit} from "./js-for-pages/sign-up.js"
 import {getUser}from "./js-for-pages/userPage.js"
+import {getPersonData} from "./js-for-pages/search.js";
 import {onLoginHandling,logout,loggedInComponentsUpdate} from "./js-for-pages/login.js";
 import {getAllHobbies}from "./js-for-pages/userPage.js"
 import {addHobbySubmit} from "./js-for-pages/userPage.js"
@@ -16,7 +17,7 @@ function renderMenuItems(evt) {
         //   break
         // }
         case "page-search": {
-            //getAllCars()
+            getPersonData()
             break
         }
         case "page-my-details":{
