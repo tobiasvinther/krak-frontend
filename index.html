@@ -12,9 +12,11 @@
             crossorigin="anonymous"></script>
     <script type="module" src="index.js"></script>
     <!-- selectize -->
+    <!--
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+    -->
 </head>
 <body>
 
@@ -175,23 +177,35 @@
 
     <div class="input-group">
         <div class="col-3">
-                <select id="hobby-select"> <!-- dummy data for now -->
+            <!--
+                <select id="hobby-select">
                     <option value="">Vælg hobby..</option>
                     <option value="Fodbold">Fodbold</option>
                     <option value="Tennis">Tennis</option>
                     <option value="Science fiction">Science fiction</option>
                     <option value="Bøger">Bøger</option>
                 </select>
+            -->
+            <select id="hobby-select1" class="form-select"> <!-- dummy data for now -->
+                <option selected>Vælg hobby..</option>
+            </select>
         </div>
         <div>
-            <button class="btn btn-success ms-2">Tilføj</button>
+            <button id="add-hobby" class="btn btn-success ms-2">Tilføj</button>
         </div>
     </div>
+    <div>
+        <ol id="id-hobby-list">
+        </ol>
+    </div>
     <script>
+        /*
         $(document).ready(function () {
             $('select').selectize({
                 sortField: 'text'
             });
         });
+
+         */
     </script>
 </template>

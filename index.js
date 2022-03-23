@@ -4,6 +4,8 @@ import {signUpForm,addUserSubmit} from "./js-for-pages/sign-up.js"
 //import {getAllCars } from "./js-for-pages/seeOurCars.js";
 //import {addCarHandles}from"./js-for-pages/addCar.js"
 import {getUser}from "./js-for-pages/userPage.js"
+import {getAllHobbies}from "./js-for-pages/userPage.js"
+import {addHobbySubmit} from "./js-for-pages/userPage.js"
 
 
 function renderMenuItems(evt) {
@@ -22,6 +24,8 @@ function renderMenuItems(evt) {
         }
         case "page-my-details":{
             getUser()
+            getAllHobbies()
+            addHobbySubmit()
             break
         }
         case "page-sign-up":{
