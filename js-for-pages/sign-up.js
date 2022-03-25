@@ -77,6 +77,8 @@ export function addUserSubmit(){
 
 function addUser(){
     const person={}
+    person.firstName = document.getElementById("firstname").value
+    person.lastName = document.getElementById("lastname").value
     person.username = document.getElementById("username").value
     person.email = document.getElementById("email").value
     person.password = document.getElementById("password").value
@@ -84,6 +86,8 @@ function addUser(){
     fetch(URL,makeOptions("POST",person,false))
         .then(res=>{
             if(!res.ok){
+                document.getElementById("firstname").value = ""
+                document.getElementById("lastname").value = ""
                 document.getElementById("username").value = ""
                 document.getElementById("email").value = ""
                 document.getElementById("password").value = ""
@@ -98,6 +102,8 @@ function addUser(){
         })
         .then(newUser =>{
             document.getElementById("matcher").style.display = "None"
+            document.getElementById("firstname").value = ""
+            document.getElementById("lastname").value = ""
             document.getElementById("username").value = ""
             document.getElementById("email").value = ""
             document.getElementById("password").value = ""
