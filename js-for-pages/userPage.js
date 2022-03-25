@@ -9,7 +9,7 @@ export function getUser() {
     const id = 2 //dummy data
     console.log("Start: getUser")
     //fetch("https://jsonplaceholder.typicode.com/users/" + id) //dummy data
-    fetch(URL + "/persons/user1") //dummy data
+    fetch(URL + "/persons/authenticatedUser")
         .then(res => {
             if (!res.ok) {
                 return Promise.reject("Error :" + res.status) //error handling
