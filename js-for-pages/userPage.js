@@ -9,7 +9,11 @@ export function getUser() {
     const id = 2 //dummy data
     console.log("Start: getUser")
     //fetch("https://jsonplaceholder.typicode.com/users/" + id) //dummy data
-    fetch(URL + "/persons/user1") //dummy data
+    fetch(URL + "/persons/authenticatedUser", {
+        headers : {
+            'Authorization' : "Bearer "+ sessionStorage.getItem("token")
+        }
+    }) //dummy data
         .then(res => {
             if (!res.ok) {
                 return Promise.reject("Error :" + res.status) //error handling
@@ -20,6 +24,7 @@ export function getUser() {
             document.getElementById("id-name").innerText = data.firstName + " " + data.lastName;
             document.getElementById("id-phone").innerText = data.phoneNumber
             document.getElementById("id-city").innerText = data.city
+            document.getElementById("id-email").innerText = data.email
 
 
             //create a list of the person's hobbies
