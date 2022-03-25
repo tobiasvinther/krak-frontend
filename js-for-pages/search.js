@@ -44,7 +44,10 @@ function makeRows(person){
         <td>${encode(p.lastName)}</td> 
         <td>${encode(p.email)}</td>      
         <td>${encode(p.city)}</td>
-        <td>${encode(p.hobbyName)}</td> 
+        <td>${p.hobbies.map((hobby) => {return hobby.hobbyName}).join("<br>")}</td> <!-- encode slette for at få det på to linjer -->
+        <!-- map funktionen: (hobby)= parameter i en "normal" funktion => (Arrow) er der for at indikere at vi har med en funktion at gøre.
+         Der er ikke sat nogen navn til funktionen da det er en anonym funktion og som kun skal benyttes til dette ene formål og dermed ikke skal 
+         kaldes til andre steder. Detfor undlader man at give den et navn. -->
     </tr>
     `).join("\n")
     document.getElementById("search-body").innerHTML = trows
