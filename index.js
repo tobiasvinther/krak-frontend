@@ -5,6 +5,7 @@ import {getPersonData} from "./js-for-pages/search.js";
 import {onLoginHandling,logout,loggedInComponentsUpdate} from "./js-for-pages/login.js";
 import {getAllHobbies}from "./js-for-pages/userPage.js"
 import {addHobbySubmit} from "./js-for-pages/userPage.js"
+import {makeListItems} from "./js-for-pages/userPage.js"
 
 function renderMenuItems(evt) {
     const element = evt.target
@@ -24,6 +25,7 @@ function renderMenuItems(evt) {
             getUser()
             getAllHobbies()
             addHobbySubmit()
+            makeListItems()
             break
         }
         case "page-sign-up":{

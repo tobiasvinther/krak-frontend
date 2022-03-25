@@ -184,14 +184,14 @@
 <template data-id="page-my-details">
     <h3 class="pt-3">Profil</h3>
     <hr>
-
+    <!--
     <div class="col-12" style="text-align: end">
         <a class="btn btn-secondary" data-bs-toggle="modal">
             <span data-bs-toggle="tooltip" data-bs-placement="bottom"></span>
             <i class="bi bi-pencil" style="font-size: 1rem; color: white;"></i>
         </a>
     </div>
-
+    -->
     <p><b>Stamdata</b></p>
     <p><u>Navn</u>: <span id="id-name"></span></p>
     <p><u>Telefon</u>: <span id="id-phone"></span></p>
@@ -214,16 +214,17 @@
                 </select>
             -->
             <select id="hobby-select1" class="form-select"> <!-- dummy data for now -->
-                <option selected>Vælg hobby..</option>
+                <option selected>Tilføj hobby..</option>
             </select>
         </div>
         <div>
             <button id="add-hobby" class="btn btn-success ms-2">Tilføj</button>
         </div>
     </div>
-    <div>
-        <ol id="id-hobby-list">
-        </ol>
+    <div class="col-3">
+        <br>
+        <ul id="id-hobby-list" class="list-group">
+        </ul>
     </div>
     <script>
         /*

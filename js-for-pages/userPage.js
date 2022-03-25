@@ -5,11 +5,10 @@ const URL = SERVER
 
 
 export function getUser() {
-    //document.getElementById("id-error").innerText = "" //reset error message
     const id = 2 //dummy data
     console.log("Start: getUser")
     //fetch("https://jsonplaceholder.typicode.com/users/" + id) //dummy data
-    fetch(URL + "/persons/user1") //dummy data
+    fetch(URL + "/persons/authenticatedUser")
         .then(res => {
             if (!res.ok) {
                 return Promise.reject("Error :" + res.status) //error handling
@@ -97,7 +96,8 @@ export function getAllHobbies(){
         makeRows(hobbyList)
         return
     }
-    fetch(URL + "/hobby")
+    //fetch(URL + "/hobby") //the "real" fetch from our backend
+    fetch("https://gist.githubusercontent.com/fadziljusri/b9b6850bba8b82c2f6d3368b2fd53cd5/raw/ac96e11512d6dfa8b55fef3500bd54cb57d966c2/hobbies.json") //"demo" data
         .then(res => res.json())
         .then(hobbies => {
             makeRows(hobbies)
@@ -110,38 +110,37 @@ function makeRows(rows){
     const defaultSelect =  document.getElementById("hobby-select1").innerHTML
 
     document.getElementById("hobby-select1").innerHTML = defaultSelect + rows.map(hobby =>
+        //the commented out code one actually works and fetches from out own backend an sets each option tag's value to the hobby's value
+        //but we didn't have time to populate the database with a lot of hobbies, so I fetch from another source instead for demo purposes
+        /*
     `
         <option value="${hobby.id}">${encode(hobby.name)}</option>
+    `
+         */
+    `
+        <option>${encode(hobby.hobby)}</option>
     `
     ).join("\n")
 }
 
-/*
-export function getHobbyList() {
+//fetch user's hobbies and put them into list
+let myHobbyList = []
 
-    fetch(URL + "/persons/user1/get-hobbies") //dummy data
+export function makeListItems() {
+
+    //fetch("https://jsonplaceholder.typicode.com/users/") //change this to fetch from the right source
+    fetch("https://gist.githubusercontent.com/fadziljusri/b9b6850bba8b82c2f6d3368b2fd53cd5/raw/ac96e11512d6dfa8b55fef3500bd54cb57d966c2/hobbies.json") //change this to fetch from the right source
         .then(res => {
             if (!res.ok) {
                 return Promise.reject("Error :" + res.status) //error handling
             }
             return res.json() //get it as json
         })
-        .then(data => { //now we have the data as json and we can start to use it
-           const itemsAsArray = []
-
-
-
-
+        .then(hobbies => {
+            document.getElementById("id-hobby-list").innerHTML = hobbies.map(hobby =>
+                `<li class="list-group-item"> ${encode(hobby.hobby)} </li>`
+            ).join("\n")
+            myHobbyList = hobbies
         })
-        .catch(err => {
-            //document.getElementById("id-error").innerText = "User doesn't exist"
-            console.error("Error caught: " + err)
-        }) //catch errors
-        .finally(e => console.log("End: getUser"))
-
-
-    let itemsAsString = names;
-    itemsAsString = names.map(name => `<li> ${name} </li>`).join("\n")
-    document.getElementById("id-hobby-list").innerHTML = itemsAsString
+        .catch(e => console.error(e))
 }
- */
