@@ -12,9 +12,11 @@
             crossorigin="anonymous"></script>
     <script type="module" src="index.js"></script>
     <!-- selectize -->
+    <!--
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+    -->
 </head>
 <body>
 
@@ -29,18 +31,19 @@
                 <li class="nav-item">
                     <a id="page-search" class="nav-link active" aria-current="page" href="#">Søg</a>
                 </li>
-                <div id="logged-in-user" ><!--style="display: none;" -->
+                <div id="logged-in-user" style="display: none;" >
                     <li class="nav-item">
                         <a id="page-my-details" class="nav-link" href="#">Min side</a>
                     </li>
                 </div>
-                <div id="not-logged-in"> <!--style="display: block;"-->
+                <div id="not-logged-in" style="display: block;">
                     <li class="nav-item">
                         <a id="page-sign-up" class="nav-link" href="#">Opret bruger</a>
                     </li>
                 </div>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Log ud</a> <!-- style="display:none" -->
+                    <a id="page-login" class="nav-link" href="#">Login</a>
+                    <a id="page-logout" class="nav-link" href="#" style="display:none">Logout</a> <!-- style="display:none" -->
                 </li>
             </ul>
             <span class="navbar-text">
@@ -61,10 +64,14 @@
 <template data-id="page-search">
     <div class="container mt-5 py-5">
         <h1 class="h1">Search</h1>
+
         <div id="wrapper">
+
             <form id="search-form">
                 <div class="mb-3">
+
                     <input name="test-input" id="search-input" type="text" class="form-control" placeholder="Name or Email" required>
+
                 </div>
                 <button id="search-button" class="btn btn-success">Search</button>
 
@@ -82,6 +89,7 @@
                 </table>
             </form>
         </div>
+
     </div>
     <!--
     <script>
@@ -95,17 +103,19 @@
             })
     </script>
     -->
+
 </template>
           
 <template data-id="page-sign-up">
     <div class="container mt-5 py-5">
         <h1 class="h1">Sign up</h1>
-        <div id="form-wrapper">
-            <form id="sign-up-form" method="POST" >
+        <div class="alert alert-success" role="alert" id="new-user-success" style="display: none"></div>
+        <div>
+            <form >
 
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input id="name" type="text" class="form-control" required>
+                    <label class="form-label">Username</label>
+                    <input id="username" type="text" class="form-control" required>
                 </div>
 
                 <div class="mb-3">
@@ -138,6 +148,29 @@
         </div>
     </div>
 </template>
+
+<template data-id="page-login">
+    <div class="container mt-5 py-5">
+        <h1>Login</h1>
+        <div class="alert alert-danger" role="alert" id="login-error" style="display: none"></div>
+    <div>
+        <form>
+            <div class="mb-3">
+                <label>Username</label>
+                <input id="username-login" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label>Password</label>
+                <input  id="password-login" type="password" class="form-control" required>
+            </div>
+
+            <button id="btn-login" type="submit" class="btn btn-secondary">Login</button>
+        </form>
+    </div>
+    </div>
+</template>
+<template data-id="page-logout"></template>
           
 <template data-id="page-my-details">
     <h3 class="pt-3">Profil</h3>
@@ -162,23 +195,35 @@
 
     <div class="input-group">
         <div class="col-3">
-                <select id="hobby-select"> <!-- dummy data for now -->
+            <!--
+                <select id="hobby-select">
                     <option value="">Vælg hobby..</option>
                     <option value="Fodbold">Fodbold</option>
                     <option value="Tennis">Tennis</option>
                     <option value="Science fiction">Science fiction</option>
                     <option value="Bøger">Bøger</option>
                 </select>
+            -->
+            <select id="hobby-select1" class="form-select"> <!-- dummy data for now -->
+                <option selected>Vælg hobby..</option>
+            </select>
         </div>
         <div>
-            <button class="btn btn-success ms-2">Tilføj</button>
+            <button id="add-hobby" class="btn btn-success ms-2">Tilføj</button>
         </div>
     </div>
+    <div>
+        <ol id="id-hobby-list">
+        </ol>
+    </div>
     <script>
+        /*
         $(document).ready(function () {
             $('select').selectize({
                 sortField: 'text'
             });
         });
+
+         */
     </script>
 </template>

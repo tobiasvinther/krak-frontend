@@ -1,11 +1,10 @@
 import { renderTemplate, setActive, showPage } from "./utils.js"
-//import { setupLoginHandlers, logout, updateLoginDependentComponents } from "./js-for-pages/login.js"
-import {signUpForm} from "./js-for-pages/sign-up.js"
-//import {getAllCars } from "./js-for-pages/seeOurCars.js";
-//import {addCarHandles}from"./js-for-pages/addCar.js"
+import {signUpForm,addUserSubmit} from "./js-for-pages/sign-up.js"
 import {getUser}from "./js-for-pages/userPage.js"
 import {getPersonData} from "./js-for-pages/search.js";
-
+import {onLoginHandling,logout,loggedInComponentsUpdate} from "./js-for-pages/login.js";
+import {getAllHobbies}from "./js-for-pages/userPage.js"
+import {addHobbySubmit} from "./js-for-pages/userPage.js"
 
 function renderMenuItems(evt) {
     const element = evt.target
@@ -23,18 +22,21 @@ function renderMenuItems(evt) {
         }
         case "page-my-details":{
             getUser()
+            getAllHobbies()
+            addHobbySubmit()
             break
         }
         case "page-sign-up":{
             signUpForm()
+            addUserSubmit()
             break
         }
         case "page-login": {
-            //setupLoginHandlers()
+            onLoginHandling()
             break
         }
         case "page-logout": {
-            //logout()
+            logout()
             break
         }
     }
@@ -42,4 +44,4 @@ function renderMenuItems(evt) {
 
 document.getElementById("menu").onclick = renderMenuItems;
 showPage("page-search") //Set the default page to render
-//updateLoginDependentComponents()
+loggedInComponentsUpdate()
